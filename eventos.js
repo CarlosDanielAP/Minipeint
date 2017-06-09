@@ -21,13 +21,13 @@ function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal,lienzo){
 }
 
 function puchado(evento){
-  if(evento.type=="touchdown"){
+  if(evento.type=="touchstart"){
     console.log("puchado");
     x=evento.clientX;
     y=evento.clientY;
     document.getElementById("area_de_dibujo").addEventListener("touchmove", dibujarMouse);
   }
-  if(evento.type=="touchup"){
+  if(evento.type=="touchend"){
     console.log("parriba");
     document.getElementById("area_de_dibujo").removeEventListener("touchmove", dibujarMouse);
   }
