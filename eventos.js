@@ -1,6 +1,6 @@
 
-document.getElementById("area_de_dibujo").addEventListener("touchstart", puchado);
-document.getElementById("area_de_dibujo").addEventListener("touchend",puchado);
+document.getElementById("area_de_dibujo").addEventListener("mousedown", puchado);
+document.getElementById("area_de_dibujo").addEventListener("mouseup",puchado);
 
 var cuadrito= document.getElementById("area_de_dibujo");
 var papel=cuadrito.getContext("2d");
@@ -21,15 +21,15 @@ function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal,lienzo){
 }
 
 function puchado(evento){
-  if(evento.type=="touchstart"){
+  if(evento.type=="mousedown"){
     console.log("puchado");
     x=evento.clientX;
     y=evento.clientY;
-    document.getElementById("area_de_dibujo").addEventListener("touchmove", dibujarMouse);
+    document.getElementById("area_de_dibujo").addEventListener("mousemove", dibujarMouse);
   }
-  if(evento.type=="touchend"){
+  if(evento.type=="mouseup"){
     console.log("parriba");
-    document.getElementById("area_de_dibujo").removeEventListener("touchmove", dibujarMouse);
+    document.getElementById("area_de_dibujo").removeEventListener("mousemove", dibujarMouse);
   }
 }
 
@@ -39,7 +39,7 @@ function dibujarMouse(evento){
   var ymouse=evento.clientY;
   var colorcito="red";
 
-  if(evento.type=="touchmove"){
+  if(evento.type=="mousemove"){
     console.log("MENEA");
     dibujarLinea(colorcito,x,y,xmouse,ymouse, papel );
     x=xmouse;
